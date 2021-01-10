@@ -2,6 +2,7 @@ import './styles.css';
 import refs from './js/refs';
 import updatePhotosMarkup from './js/update-photos-markup';
 import apiService from './js/apiService';
+import showNotification from './js/notification';
 
 refs.searchForm.addEventListener('submit', searchFormSubmitHandler);
 refs.loadMoreBtn.addEventListener('click', fetchPhotos);
@@ -22,7 +23,13 @@ function fetchPhotos() {
   refs.loadMoreBtn.classList.add('is-hidden');
 
   apiService.fetchPhotos().then(hits => {
+    if (hits.length === 0) {
+      showNotification.showErrorMessage();
+      return;
+    }
+
     updatePhotosMarkup(hits);
+    showNotification.showSuccessMessage();
     refs.loadMoreBtn.classList.remove('is-hidden');
     scrollPage();
   });
