@@ -2,7 +2,8 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import * as basicLightbox from 'basiclightbox';
 
 function showLargePhoto(event) {
-  if (event.target.nodeName !== 'BUTTON') {
+  const targetNode = event.target.nodeName;
+  if (targetNode !== 'IMG' && targetNode !== 'BUTTON') {
     return;
   }
 
