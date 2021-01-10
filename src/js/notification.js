@@ -7,7 +7,7 @@ function showNotification(message, type) {
     type: `${type}`,
     text: `${message}`,
     mode: 'light',
-    delay: 3000,
+    delay: 2000,
     sticker: false,
     maxTextHeight: null,
     addClass: 'notification',
@@ -20,15 +20,21 @@ function showNotification(message, type) {
 
 function showSuccessMessage() {
   const successMessage =
-    "Picture uploaded. To get more, click 'Load more' button";
+    "Photos uploaded. To get more, click 'Load more' button";
   const type = 'success';
   showNotification(successMessage, type);
 }
 
 function showErrorMessage() {
-  const errorMessage = 'No matche found. Please specify your query';
+  const errorMessage = 'No matches found. Please specify your query';
   const type = 'error';
   showNotification(errorMessage, type);
 }
 
-export default { showSuccessMessage, showErrorMessage };
+function showInfoMessage() {
+  const infoMessage = 'No more matches found';
+  const type = 'info';
+  showNotification(infoMessage, type);
+}
+
+export default { showSuccessMessage, showErrorMessage, showInfoMessage };

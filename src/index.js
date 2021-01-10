@@ -25,7 +25,10 @@ function fetchPhotos() {
   refs.loadMoreBtn.classList.add('is-hidden');
 
   apiService.fetchPhotos().then(hits => {
-    if (hits.length === 0) {
+    if (refs.photosGallery.innerHTML !== '' && hits.length === 0) {
+      showNotification.showInfoMessage();
+      return;
+    } else if (hits.length === 0) {
       showNotification.showErrorMessage();
       return;
     }
