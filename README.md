@@ -10,7 +10,7 @@
 URL-рядок запиту:
 
 ```bash
-https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=что_искать&page=номер_страницы&per_page=12&key=твой_ключ
+https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=що_шукати&page=номер_сторінки&per_page=12&key=твій_ключ
 ```
 
 Pixabay API підтримує пагінацію, нехай у відповіді приходить по 12 об'єктів,
